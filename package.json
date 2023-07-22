@@ -1,0 +1,53 @@
+{
+  "name": "sus",
+  "productName": "sus",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "someone",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development electron .",
+    "dev": "npm start",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "cross-env NODE_ENV=production electron-builder build"
+  },
+  "build": {
+    "appId": "com.example.app",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "portable"
+    },
+    "extraResources": [
+      "databaseFolder"
+    ]
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "sqlite3": "5.1.6"
+  },
+  "devDependencies": {
+    "electron": "25.0.1",
+    "electron-builder": "^24.4.0",
+    "cross-env": "^7.0.3"
+  }
+}
